@@ -4,16 +4,16 @@
 int main() {
     char buffer[256];
     
-    if (isatty(STDIN_FILENO)) {
+    if (isatty(1)) {
         char text[] = "input: ";
-        write(STDERR_FILENO, text, sizeof(text)-1);
+        write(1, text, sizeof(text)-1);
     }
     
-    ssize_t bytesRead = read(STDIN_FILENO, buffer, sizeof(buffer) - 1);
+    ssize_t bytesRead = read(0, buffer, sizeof(buffer) - 1);
     
     char text[] = "out: ";
-    write(STDOUT_FILENO, text, sizeof(text)-1);
-    write(STDOUT_FILENO, buffer, bytesRead);
+    write(1, text, sizeof(text)-1);
+    write(1, buffer, bytesRead);
     
     return 0;
 }
