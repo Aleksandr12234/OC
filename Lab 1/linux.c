@@ -9,7 +9,7 @@ int main() {
         write(1, text, sizeof(text)-1);
     }
     
-    ssize_t bytesRead = read(0, buffer, sizeof(buffer) - 1);
+    int bytesRead = read(0, buffer, sizeof(buffer) - 1);
     
     char text[] = "out: ";
     write(1, text, sizeof(text)-1);
