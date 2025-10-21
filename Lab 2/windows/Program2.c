@@ -18,14 +18,16 @@ void main()
     int len = sprintf(out, "\n%d\n%d\n%d", fhandle, fhandle2, fhandle3);
     WriteFile(fhandle, out, len, NULL, NULL);
 
+    SetFilePointer(fhandle, 10, 0, FILE_BEGIN);
+
     char hOut1[7];
     ReadFile(fhandle, hOut1, 7, NULL, NULL);
     char hOut2[7];
-    ReadFile(fhandle, hOut1, 7, NULL, NULL);
+    ReadFile(fhandle2, hOut1, 7, NULL, NULL);
     char hOut3[7];
-    ReadFile(fhandle, hOut1, 7, NULL, NULL);
+    ReadFile(fhandle3, hOut1, 7, NULL, NULL);
 
-    len = sprintf(out, "\n%d\n%d\n%d", hOut1, hOut2, hOut3);
+    len = sprintf(out, "\n%s\n%s\n%s", hOut1, hOut2, hOut3);
 
     WriteFile(inputH, out, len, NULL, NULL);
 
